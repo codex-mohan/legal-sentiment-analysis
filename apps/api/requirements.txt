@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+ibm-watsonx-ai
+python-docx
+PyPDF2
+pandas
+docx
