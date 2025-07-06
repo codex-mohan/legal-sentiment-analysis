@@ -10,91 +10,107 @@ This project aims to provide a tool for analyzing the sentiment expressed within
 
 ## 🚀 Features
 
-*   Upload or input legal text for analysis.
-*   Receive sentiment scores (e.g., positive, negative, neutral).
-*   Visualize sentiment distribution within the text.
-*   API endpoint for programmatic access to sentiment analysis.
+- Upload or input legal text for analysis.
+- Receive sentiment scores (e.g., positive, negative, neutral).
+- Visualize sentiment distribution within the text.
+- API endpoint for programmatic access to sentiment analysis.
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack ✨
 
 This project is built as a monorepo using [pnpm](https://pnpm.io/) and [TurboRepo](https://turbo.build/).
 
 **Frontend (Web Application):**
 
-*   [Next.js](https://nextjs.org/) (React Framework)
-*   [TypeScript](https://www.typescriptlang.org/)
-*   [Tailwind CSS](https://tailwindcss.com/) (for styling)
-*   Shared UI components (`packages/ui`)
+- [Next.js](https://nextjs.org/) (React Framework)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/) (for styling)
+- Shared UI components (`packages/ui`)
+- Dependencies: `framer-motion`, `lucide-react`, `next-themes`, `react`, `react-dom`
 
 **Backend (API):**
 
-*   [Python](https://www.python.org/)
-*   [FastAPI](https://fastapi.tiangolo.com/) (Web Framework)
-*   Relevant NLP libraries (e.g., NLTK, spaCy, Transformers - *specify if known*)
+- [Python](https://www.python.org/)
+- [FastAPI](https://fastapi.tiangolo.com/) (Web Framework)
+- [IBM watsonx AI](https://www.ibm.com/watsonx)
+- Dependencies: `fastapi`, `uvicorn`, `ibm-watsonx-ai`, `python-docx`, `PyPDF2`, `pandas`, `docx`
+
+**Shared UI Components (`packages/ui`):**
+
+- Dependencies: `@radix-ui/react-slot`, `class-variance-authority`, `clsx`, `lucide-react`, `next-themes`, `react`, `react-dom`, `tailwind-merge`, `tw-animate-css`, `zod`
+
+**Development Dependencies (Root):**
+
+- `@workspace/eslint-config`, `@workspace/typescript-config`, `prettier`, `turbo`, `typescript`
 
 ## 📂 Project Structure
 
 The project follows a monorepo structure managed by pnpm and TurboRepo:
 
-*   `apps/`: Contains the main applications.
-    *   `api/`: The Python backend API.
-    *   `web/`: The Next.js frontend web application.
-*   `packages/`: Contains shared code and configurations.
-    *   `eslint-config/`: Shared ESLint configurations.
-    *   `typescript-config/`: Shared TypeScript configurations.
-    *   `ui/`: Shared UI components (e.g., React components).
+- `apps/`: Contains the main applications.
+  - `api/`: The Python backend API.
+  - `web/`: The Next.js frontend web application.
+- `packages/`: Contains shared code and configurations.
+  - `eslint-config/`: Shared ESLint configurations.
+  - `typescript-config/`: Shared TypeScript configurations.
+  - `ui/`: Shared UI components (e.g., React components).
 
-## ⚙️ Setup and Installation
+## ⚙️ Setup and Installation 🚀
 
-To get the project up and running locally, follow these steps:
+Getting this project up and running is easy! Just follow these steps:
 
-### Prerequisites
+### What You Need (Prerequisites) ✨
 
-Make sure you have the following installed on your system:
+Make sure you have these installed on your computer:
 
-*   **Node.js:** Required for the frontend and monorepo tooling (pnpm, TurboRepo). Download from [nodejs.org](https://nodejs.org/). It is recommended to use a Node.js version compatible with Next.js (check Next.js documentation for details).
-*   **Python:** Required for the backend API. Download from [python.org](https://www.python.org/).
-*   **Docker (Optional):** If you prefer to run the project using Docker containers. Download from [docker.com](https://www.docker.com/).
+- **Node.js:** You'll need this for the frontend and some helpful tools. Get it from [nodejs.org](https://nodejs.org/).
+- **Python:** This is for the backend part of the project. Download it from [python.org](https://www.python.org/).
+- **Docker (Optional):** If you prefer using containers, get Docker from [docker.com](https://www.docker.com/).
+- **uv (Optional):** If you want to use `uv` for Python dependency management, you can install it by following the instructions on the [uv GitHub page](https://github.com/astral-sh/uv).
 
-### Local Setup
+### Setting Up Locally 💻
 
-1.  **Clone the repository:**
+1.  **Get the code:**
+
     ```bash
-    git clone https://github.com/your-username/legal-sentiment-analysis.git
+    git clone https://github.com/codex-mohan/legal-sentiment-analysis.git
     cd legal-sentiment-analysis
     ```
-    *(Replace `your-username` with the actual GitHub username/organization)*
 
-2.  **Install pnpm:** If you don't have pnpm installed, you can install it globally:
+2.  **Install pnpm:** We use pnpm to manage project dependencies. If you don't have it, install it globally:
+
     ```bash
     npm install -g pnpm
     ```
 
-3.  **Install dependencies:** Navigate to the project root and install dependencies for all workspaces:
+3.  **Install all dependencies:** This command installs everything needed for both the frontend (using pnpm) and backend (using python venv and pip).
+
     ```bash
-    pnpm install
+    pnpm install-deps
     ```
 
 4.  **Setup API Environment:**
-    *   Navigate to the API directory: `cd apps/api`
-    *   Create a `.env` file based on the `.env.example` (if available) or project requirements.
-    *   Install Python dependencies: `uv pip install -r requirements.txt` (assuming `uv` is used as per `uv.lock`)
 
-5.  **Build and Run:**
-    *   Return to the project root: `cd ../..`
-    *   Build the project using TurboRepo:
-        ```bash
-        pnpm build
-        ```
-    *   Start the development servers for both the API and Web applications:
-        ```bash
-        pnpm dev
-        ```
-    *   The web application should be available at `http://localhost:3000` and the API at `http://localhost:8000` (or respective ports defined in configurations).
+    - Go into the API folder: `cd apps/api`
+    - Create a `.env` file. You might find an example like `.env.example` to help you.
+    - This project uses `uv` for Python dependency management. Ensure you have `uv` installed if you plan to use `uv` commands directly.
+    - If you prefer to install Python dependencies manually using `uv`, run: `uv pip install -r requirements.txt`
+    - You can also continue using `python-venv` if you want a more vanilla, simpler approach.
 
-### Docker Setup (Alternative)
+5.  **Build and Run the Project:**
+    - Go back to the main project folder: `cd ../..`
+    - Build the project:
+      ```bash
+      pnpm build
+      ```
+    - Start the development servers:
+      ```bash
+      pnpm dev
+      ```
+    - The website will be at `http://localhost:3000` and the API at `http://localhost:8000`.
 
-Alternatively, you can use Docker to build and run the project:
+### Using Docker (Another Option) 🐳
+
+If you like using Docker, here's how:
 
 1.  **Build the Docker image:**
     ```bash
@@ -105,15 +121,15 @@ Alternatively, you can use Docker to build and run the project:
     docker run -p 3000:3000 -p 8000:8000 legal-sentiment-analysis
     ```
 
-## 💡 Future Enhancements
+## 💡 Ideas for the Future
 
-*   Integration with different sentiment analysis models.
-*   Support for various legal document formats (PDF, DOCX, etc.).
-*   User authentication and profile management.
-*   Database integration to store analysis results.
-*   Advanced visualizations and reporting.
-*   Fine-tuning models on specific legal datasets.
-*   Adding support for other languages.
+- Integration with different sentiment analysis models.
+- Support for various legal document formats (PDF, DOCX, etc.).
+- User authentication and profile management.
+- Database integration to store analysis results.
+- Advanced visualizations and reporting.
+- Fine-tuning models on specific legal datasets.
+- Adding support for other languages.
 
 ## Contributing
 

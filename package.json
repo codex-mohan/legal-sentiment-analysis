@@ -7,7 +7,8 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "docker-build": "docker build -t legal-sentiment-analyzer ."
+    "docker-build": "docker build -t legal-sentiment-analyzer .",
+    "install-deps": "cd apps/api && python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt && cd ../.. && pnpm install"
   },
   "devDependencies": {
     "@workspace/eslint-config": "workspace:*",
